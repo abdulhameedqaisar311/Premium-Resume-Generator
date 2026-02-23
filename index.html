@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Resume Generator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <h1>Premium Resume Generator</h1>
+
+    <div class="container">
+      <!-- Form Section -->
+      <div class="form-section">
+        <input type="text" id="name" placeholder="Full Name" />
+        <input type="email" id="email" placeholder="Email" />
+        <input type="text" id="phone" placeholder="Phone" />
+        <input type="text" id="linkedin" placeholder="LinkedIn URL" />
+
+        <label>Upload Profile Photo</label>
+        <input type="file" id="photoUpload" accept="image/*" />
+
+        <label>Choose Template:</label>
+        <select id="template">
+          <option value="template1">Minimal</option>
+          <option value="template2">Corporate</option>
+          <option value="template3">Creative</option>
+        </select>
+
+        <textarea
+          id="education"
+          placeholder="Education (one per line)"
+        ></textarea>
+        <textarea
+          id="experience"
+          placeholder="Experience (one per line)"
+        ></textarea>
+        <textarea
+          id="skills"
+          placeholder="Skills (format: HTML, CSS, JS)"
+        ></textarea>
+        <textarea
+          id="projects"
+          placeholder="Projects (comma separated)"
+        ></textarea>
+
+        <textarea
+          id="certifications"
+          placeholder="Certifications (one per line)"
+        ></textarea>
+        <textarea id="awards" placeholder="Awards (one per line)"></textarea>
+        <textarea
+          id="languages"
+          placeholder="Languages (format: English:Fluent, Urdu:Native)"
+        ></textarea>
+        <textarea
+          id="hobbies"
+          placeholder="Hobbies (comma separated)"
+        ></textarea>
+
+        <button onclick="generateResume()">Generate Resume</button>
+      </div>
+
+      <!-- Resume Section -->
+      <div class="resume-section template1" id="resumeTemplate">
+        <div class="resume-header">
+          <img
+            id="rPhoto"
+            src="https://via.placeholder.com/80"
+            alt="Profile Photo"
+          />
+          <div class="resume-info">
+            <h2 id="rName">Your Name</h2>
+            <p id="rEmail">Email</p>
+            <p id="rPhone">Phone</p>
+            <p id="rLinkedin">LinkedIn</p>
+          </div>
+        </div>
+
+        <h3>Education</h3>
+        <div id="rEducation"></div>
+
+        <h3>Experience</h3>
+        <div id="rExperience"></div>
+
+        <h3>Skills</h3>
+        <div id="rSkills"></div>
+
+        <h3>Projects</h3>
+        <div id="rProjects"></div>
+
+        <h3>Certifications</h3>
+        <div id="rCertifications"></div>
+
+        <h3>Awards</h3>
+        <div id="rAwards"></div>
+
+        <h3>Languages</h3>
+        <div id="rLanguages"></div>
+
+        <h3>Hobbies</h3>
+        <div id="rHobbies"></div>
+
+        <button class="no-print" onclick="downloadPDF()">Download PDF</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
